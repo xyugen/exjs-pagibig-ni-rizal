@@ -15,6 +15,7 @@ import {
   FontUnit,
   GraphicsGroup,
   Label,
+  Line,
   Rectangle,
   Scene,
   TextAlign,
@@ -153,8 +154,14 @@ export default class LevelScene extends Scene {
       const womanImage = Object.values(womenImages)[index];
       const womanSprite = womanImage.toSprite();
       const woman = new Woman({
-        x: womanEntity.globalPos.x + 500 * index,
-        y: womanEntity.globalPos.y,
+        x:
+          index !== 9 // Next to Suzanne Jacoby
+            ? womanEntity.globalPos.x + 500 * index
+            : womanEntity.globalPos.x + 505 * index,
+        y:
+          index !== 8 // Suzanne Jacoby
+            ? womanEntity.globalPos.y - 25
+            : womanEntity.globalPos.y - 32,
       });
 
       const MAIN_COLOR = Color.White;
@@ -233,10 +240,21 @@ export default class LevelScene extends Scene {
         lineWidth: 6,
       });
 
+      const line = new Line({
+        start: vec(groupWidth - 5, 50),
+        end: vec(groupWidth + 50, groupHeight),
+        color: Color.fromHex("#221F19"),
+        thickness: 8,
+      });
+
       // Create the final group with background as first element
       const finalGroup = new GraphicsGroup({
         useAnchor: true,
         members: [
+          {
+            graphic: line,
+            offset: vec(0, 0),
+          },
           {
             graphic: background,
             offset: vec(15 + padding * 2, 0),

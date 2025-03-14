@@ -153,7 +153,7 @@ export const timelineEvents: TimelineEvent[] = [
     talambuhay:
       "Si Suzanne Jacoby ay pamangkin ng may-ari\nng paupahang tinutuluyan ni Rizal noong\nsiya ay nasa Brussels, Belgium.",
     buodNgPagibig:
-      "Noong si Rizal ay labis na nakakaramdam\nng kalungkutan at pag-aalala\nsa kanyang pamilya sa Pilipinas,\nsi Suzanne ang kanyang naging sandalan upang kahit papaano ay mapawi ang pag-aalala na nararamdaman\nnito. Nagkaroon sila ng maikling romansa, ngunit iniwan\nsiya ni Rizal upang lumipat sa Madrid.\nAng kanilang relasyon ay nagpakita ng suporta at aliw sa\npanahon ng pagdadalamhati ni Rizal.\nAng pag-ibig na isinakripisyo para sa misyon.",
+      "Noong si Rizal ay labis na nakakaramdam\nng kalungkutan at pag-aalala sa kanyang\npamilya sa Pilipinas, si Suzanne\nang kanyang naging sandalan upang kahit papaano ay\nmapawi ang pag-aalala na nararamdaman\nnito. Nagkaroon sila ng maikling romansa, ngunit iniwan\nsiya ni Rizal upang lumipat sa Madrid.\nAng kanilang relasyon ay nagpakita ng suporta at\naliw sa panahon ng pagdadalamhati ni Rizal.\nAng pag-ibig na isinakripisyo para sa misyon.",
     mgaSinulatNiRizal:
       'Sinasabing inialay ni Rizal kay Suzanne ang dalawang sanaysay na pinamagatang "Filipinas Dentro de Cien Anos" at ang "Sobre de la Indolencia de los Filipinos"',
     epektoKayRizal:
@@ -169,7 +169,7 @@ export const timelineEvents: TimelineEvent[] = [
     name: "Pastora Necesario",
     title: "Usap-usapang Pag-ibig sa Dapitan",
     talambuhay:
-      "Isang dalaga mula sa Dapitan, na sinasabing isa\nsa mga hinangaan ni Rizal\nhabang siya'y nakadestiyero.",
+      "Isang dalaga mula sa Dapitan, na\nsinasabing isa sa mga hinangaan ni\nRizal habang siya'y nakadestiyero.",
     buodNgPagibig:
       "Wala pang matibay na ebidensya ng\nmalalim nilang relasyon, ngunit\nsinasabing isa siya sa mga nagkagusto\nkay Rizal.",
     mgaSinulatNiRizal: "Walang matibay na dokumentasyon.",
