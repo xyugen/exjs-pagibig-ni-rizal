@@ -5,9 +5,9 @@ import {
   Engine,
   FadeInOut,
 } from "excalibur";
+import { GRAVITY } from "./physics/gravity";
 import { loader } from "./resources";
 import MainScene from "./scenes/main-scene";
-import { GRAVITY } from "./physics/gravity";
 
 // Goal is to keep main.ts small and just enough to configure the engine
 
@@ -44,6 +44,6 @@ game
     }),
   })
   .then(() => {
-  game.screen.pixelRatioOverride = 2;
+    game.screen.pixelRatioOverride = 2;
     game.screen.applyResolutionAndViewport();
   });

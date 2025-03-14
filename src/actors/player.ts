@@ -1,15 +1,19 @@
 import {
-  Actor,
   Animation,
+  AnimationStrategy,
+  BodyComponent,
   clamp,
   CollisionType,
   Shape,
+  Side,
   SpriteSheet,
   vec,
   Vector,
 } from "excalibur";
+import { PhysicsActor } from "../classes/physics-actor";
 import { AnimationComponent } from "../components/graphics/animation";
 import ControlsComponent from "../input/controls";
+import { CollisionGroup } from "../physics/collision";
 import { Resources } from "../resources";
 
 const spritesheet = SpriteSheet.fromImageSource({
@@ -22,7 +26,7 @@ const spritesheet = SpriteSheet.fromImageSource({
   },
 });
 
-export default class Player extends Actor {
+export default class Player extends PhysicsActor {
   /* Constants */
 
   /**
@@ -48,8 +52,18 @@ export default class Player extends Actor {
   /* Components */
 
   animation = new AnimationComponent({
-    idle: Animation.fromSpriteSheet(spritesheet, [0, 1, 2, 3, 4, 5], 12),
-    run: Animation.fromSpriteSheet(spritesheet, [6, 7, 8, 9, 10, 11], 12),
+    idle: Animation.fromSpriteSheet(
+      spritesheet,
+      [0, 1, 2, 3, 4, 5],
+      140,
+      AnimationStrategy.Loop
+    ),
+    run: Animation.fromSpriteSheet(
+      spritesheet,
+      [6, 7, 8, 9, 10, 11],
+      140,
+      AnimationStrategy.Loop
+    ),
   });
   controls = new PlayerControlsComponent();
 
@@ -81,15 +95,15 @@ export default class Player extends Actor {
     super({
       ...args,
       name: "player",
-      anchor: new Vector(0.5, 0.5),
+      anchor: new Vector(0.5, 1),
       width: 32,
       height: 32,
       collisionType: CollisionType.Active,
-      // collisionGroup: CollisionGroup.Player,
-      // @ts-expect-error
-      collider: Shape.Box(32, 32, vec(0.5, 0.5)),
+      collisionGroup: CollisionGroup.Player,
     });
 
+    // Set up collision box after construction
+    this.collider.set(Shape.Box(32, 32, vec(0.5, 1), vec(0, 32)));
     this.body.useGravity = true;
 
     this.addComponent(this.animation);
@@ -137,6 +151,31 @@ export default class Player extends Actor {
     this.applyDeceleration();
   }
 
+  onCollisionStart(
+    self: ex.Collider,
+    other: ex.Collider,
+    side: ex.Side,
+    contact: ex.CollisionContact
+  ): void {
+    if (contact.isCanceled()) {
+      return;
+    }
+
+    const otherBody = other.owner.get(BodyComponent);
+
+    if (
+      otherBody?.collisionType === CollisionType.Fixed ||
+      otherBody?.collisionType === CollisionType.Active
+    ) {
+      const wasInAir = this.oldVel.y > 0;
+
+      // player landed on the ground
+      if (side === Side.Bottom && wasInAir) {
+        this.isOnGround = true;
+      }
+    }
+  }
+
   /**
    * Process user input to control the character
    */
@@ -160,23 +199,32 @@ export default class Player extends Actor {
   handleAnimation() {
     const heldDirection = this.controls.getHeldXDirection();
 
+    // Set the sprite direction based on facing
     this.graphics.flipHorizontal = this.facing === "left";
+
+    // If player is not moving (velocity near zero), always play idle animation
+    if (Math.abs(this.vel.x) < 1) {
+      this.animation.set("idle");
+      return;
+    }
+
     if (this.isOnGround) {
-      const isMovingInHeldDirection =
-        !heldDirection ||
+      // Check if player is moving in the direction they're holding
+      const isMovingWithInput =
         (heldDirection === "Left" && this.vel.x < 0) ||
         (heldDirection === "Right" && this.vel.x > 0);
 
-      if (isMovingInHeldDirection) {
+      // If player is moving and input matches movement direction, run
+      // If no direction is held but still moving, also run (momentum)
+      if (isMovingWithInput || !heldDirection) {
         this.animation.set("run");
       } else {
+        // Player is trying to change direction or stop
         this.animation.set("idle");
       }
-    }
-
-    // if we're not moving, play the idle animation
-    if (Math.round(this.vel.x) === 0) {
-      this.animation.set("idle");
+    } else {
+      // When in air, use run animation if moving horizontally
+      this.animation.set(Math.abs(this.vel.x) > 10 ? "run" : "idle");
     }
   }
 
