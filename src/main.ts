@@ -10,6 +10,7 @@ import { loader } from "./resources";
 import MainScene from "./scenes/main-scene";
 import { calculateExPixelConversion } from "./util/calculate-ex-pixel-conversion";
 import isMobile from "is-mobile";
+import { initOrientationHandler } from "./util/orientation-handler";
 
 // Goal is to keep main.ts small and just enough to configure the engine
 const game = new Engine({
@@ -38,6 +39,9 @@ if (isMobile()) {
   const mobileButtons = document.getElementById("move-buttons") as HTMLDivElement;
   mobileButtons.style.display = "flex";
 }
+
+// Initialize orientation handler for mobile devices
+initOrientationHandler();
 
 game.screen.events.on("resize", () => calculateExPixelConversion(game.screen));
 
