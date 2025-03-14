@@ -291,8 +291,10 @@
   </data>
  </layer>
  <objectgroup id="5" name="text">
-  <object id="14" x="556" y="140" width="251" height="41">
-   <text fontfamily="Round9x13" wrap="1" color="#ffffff">ARROW KEYS TO MOVE</text>
+  <object id="14" x="556" y="140" width="251" height="63.5">
+   <text fontfamily="Round9x13" wrap="1" color="#ffffff">ARROW KEYS OR A/D TO MOVE
+
+SHIFT TO SPRINT</text>
   </object>
  </objectgroup>
  <objectgroup id="8" name="women">

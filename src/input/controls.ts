@@ -8,6 +8,7 @@ export default class ControlsComponent extends Component {
   controls = {
     Left: [Keys.Left, Keys.A],
     Right: [Keys.Right, Keys.D],
+    Sprint: [Keys.ShiftLeft, Keys.ShiftRight],
   } as const;
 
   isHeld(control: keyof typeof this.controls) {

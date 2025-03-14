@@ -49,6 +49,11 @@ export default class Player extends PhysicsActor {
    */
   RUN_MAX_VELOCITY = 90;
 
+  /**
+   * The maximum velocity the player can sprint at.
+   */
+  SPRINT_MAX_VELOCITY = 210;
+
   /* Components */
 
   animation = new AnimationComponent({
@@ -62,6 +67,12 @@ export default class Player extends PhysicsActor {
       spritesheet,
       [6, 7, 8, 9, 10, 11],
       140,
+      AnimationStrategy.Loop
+    ),
+    sprint: Animation.fromSpriteSheet(
+      spritesheet,
+      [6, 7, 8, 9, 10, 11],
+      100,
       AnimationStrategy.Loop
     ),
   });
@@ -80,7 +91,12 @@ export default class Player extends PhysicsActor {
   isOnGround: boolean = false;
 
   get maxXVelocity() {
-    return this.RUN_MAX_VELOCITY;
+    switch (true) {
+      case this.controls.isSprinting:
+        return this.SPRINT_MAX_VELOCITY;
+      default:
+        return this.RUN_MAX_VELOCITY;
+    }
   }
 
   get maxFallingVelocity() {
@@ -282,6 +298,10 @@ class PlayerControlsComponent extends ControlsComponent {
 
   get isMoving() {
     return this.getHeldXDirection() !== undefined;
+  }
+
+  get isSprinting() {
+    return this.isMoving && this.isHeld("Sprint");
   }
 
   get isTurning() {
