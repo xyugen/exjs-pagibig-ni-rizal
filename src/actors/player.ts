@@ -3,7 +3,11 @@ import {
   ActorArgs,
   Animation,
   clamp,
+  CollisionGroup,
+  CollisionType,
+  Shape,
   SpriteSheet,
+  vec,
   Vector
 } from "excalibur";
 import { AnimationComponent } from "../components/graphics/animation";
@@ -19,23 +23,6 @@ const spritesheet = SpriteSheet.fromImageSource({
     spriteHeight: 32,
   },
 });
-
-/**
- * k.loadSprite("tileset", "sprites/tileset-1.png", {
-  sliceX: 9,
-  sliceY: 7,
-});
-
-// Player
-k.loadSprite("rizal", "sprites/rizal-spritesheet.png", {
-  sliceX: 6,
-  sliceY: 2,
-  anims: {
-    idle: { from: 0, to: 5, speed: 12, loop: true },
-    run: { from: 6, to: 11, speed: 12, loop: true },
-  },
-});
- */
 
 export default class Player extends Actor {
   /* Constants */
@@ -92,8 +79,18 @@ export default class Player extends Actor {
     return this.isOnGround;
   }
 
-  constructor(args: ActorArgs) {
-    super(args);
+  constructor(args: { x: number; y: number; z?: number }) {
+    super({
+      ...args,
+      name: 'player',
+      anchor: new Vector(0.5, 0.5),
+      width: 32,
+      height: 32,
+      collisionType: CollisionType.Active,
+      // collisionGroup: CollisionGroup.Player,
+      // @ts-expect-error
+      collider: Shape.Box(32, 32, vec(0.5, 0.5)),
+    });
 
     this.body.useGravity = true;
 

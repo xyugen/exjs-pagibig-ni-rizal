@@ -1,10 +1,16 @@
-import { DefaultLoader, Engine, ExcaliburGraphicsContext, Scene, SceneActivationContext } from "excalibur";
-import { Player } from "../player";
+import {
+  DefaultLoader,
+  Engine,
+  ExcaliburGraphicsContext,
+  Scene,
+  SceneActivationContext,
+} from "excalibur";
+import Player from "../actors/player";
 
 export default class MainScene extends Scene {
   override onInitialize(engine: Engine): void {
     // Scene.onInitialize is where we recommend you perform the composition for your game
-    const player = new Player();
+    const player = new Player({ x: 0, y: 0 });
     this.add(player); // Actors need to be added to a scene to be drawn
   }
 
