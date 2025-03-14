@@ -1,14 +1,12 @@
 import {
   Actor,
-  ActorArgs,
   Animation,
   clamp,
-  CollisionGroup,
   CollisionType,
   Shape,
   SpriteSheet,
   vec,
-  Vector
+  Vector,
 } from "excalibur";
 import { AnimationComponent } from "../components/graphics/animation";
 import ControlsComponent from "../input/controls";
@@ -82,7 +80,7 @@ export default class Player extends Actor {
   constructor(args: { x: number; y: number; z?: number }) {
     super({
       ...args,
-      name: 'player',
+      name: "player",
       anchor: new Vector(0.5, 0.5),
       width: 32,
       height: 32,
@@ -93,6 +91,9 @@ export default class Player extends Actor {
     });
 
     this.body.useGravity = true;
+
+    this.addComponent(this.animation);
+    this.addComponent(this.controls);
 
     this.addTag("player");
     // for debugging
@@ -157,8 +158,6 @@ export default class Player extends Actor {
    * Sets the player's animation based on their current state.
    */
   handleAnimation() {
-    const currentFrameIndex = this.animation.current.currentFrameIndex;
-    const currentFrameTimeLeft = this.animation.current.currentFrameTimeLeft;
     const heldDirection = this.controls.getHeldXDirection();
 
     this.graphics.flipHorizontal = this.facing === "left";

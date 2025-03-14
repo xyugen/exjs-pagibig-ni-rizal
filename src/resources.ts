@@ -4,7 +4,7 @@ import { FontSource, ImageSource, Loader } from "excalibur";
 export const Resources = {
   sprites: {
     player: new ImageSource("./sprites/rizal-spritesheet.png"),
-    background: new ImageSource("./sprites/backgrounds/main-bg"),
+    background: new ImageSource("./sprites/backgrounds/main-bg.png"),
     tilemap: new ImageSource("./sprites/tileset-1.png"),
   },
   fonts: {
