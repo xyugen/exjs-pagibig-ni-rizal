@@ -18,6 +18,7 @@ import {
 } from "excalibur";
 import { CollisionGroup } from "../physics/collision";
 import { Resources } from "../resources";
+import { Woman } from "../actors/woman";
 // import { LevelOverlay } from "../ui/level-overlay";
 
 export default class LevelScene extends Scene {
@@ -32,6 +33,14 @@ export default class LevelScene extends Scene {
     /* Player */
     Player: (props) =>
       new Player({
+        x: props.object?.x ?? 0,
+        y: props.object?.y ?? 0,
+        z: props.layer.order ?? 0,
+      }),
+
+    /* Woman */
+    Woman: (props) =>
+      new Woman({
         x: props.object?.x ?? 0,
         y: props.object?.y ?? 0,
         z: props.layer.order ?? 0,
@@ -116,6 +125,51 @@ export default class LevelScene extends Scene {
     this.setupCamera();
     this.setupBackground();
     this.setupWorldBounds();
+    this.setupWomen();
+  }
+
+  setupWomen() {
+    // find all women instances
+    // const women = this.entities.filter((e) => e instanceof Woman);
+    const womanEntity = this.entities.find((e) => e instanceof Woman) as Woman;
+
+    if (!womanEntity) {
+      console.warn("Woman not found in scene entities.");
+      return;
+    }
+
+    // if (women.length == 0) {
+    //   console.warn("Women not found in scene entities.");
+    //   return;
+    // }
+
+    // women.forEach((woman) => {
+    //   console.log(woman.globalPos.x);
+    // });
+
+    console.log(womanEntity);
+
+    const womenImages = Resources.womenSprites;
+    Object.values(womenImages).forEach((womanImage, index) => {
+      const womanSprite = womanImage.toSprite();
+      const woman = new Woman({
+        x: womanEntity.globalPos.x + (500 * index),
+        y: womanEntity.globalPos.y,
+      });
+      womanSprite.scale = vec(0.1, 0.1);
+      woman.graphics.use(womanSprite);
+      this.add(woman);
+    });
+    // const womenImages = Resources.womenSprites;
+    // Object.values(women).forEach((woman, index) => {
+    //   const womanSprite = Object.values(womenImages)[index].toSprite();
+    //   womanSprite.scale = vec(0.1, 0.1);
+    //   woman.graphics.use(womanSprite);
+    // });
+    // Object.values(womenImages).forEach((sprite, index) => {
+    //   const womanSprite = sprite.toSprite();
+    //   women[index].graphics.use(womanSprite);
+    // });
   }
 
   setupCollisionGroups() {
