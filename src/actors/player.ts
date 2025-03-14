@@ -197,7 +197,6 @@ export default class Player extends PhysicsActor {
    */
   handleInput() {
     const heldXDirection = this.controls.getHeldXDirection();
-    console.log("HELD DIRECTION", heldXDirection);
     // move left or right
     if (heldXDirection && this.isXMovementAllowed) {
       const direction = heldXDirection === "Left" ? -1 : 1;

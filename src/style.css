@@ -1,16 +1,24 @@
-/* @import url("../public/fonts/silkscreen-regular.woff2"); */
+@font-face {
+  font-family: "SilkScreen";
+  src: url("../public/fonts/silkscreen-regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
 
 @media (prefers-color-scheme: dark) {
   body {
-    font-family: 'SilkScreen';
+    font-family: "SilkScreen";
     background-color: black;
   }
 }
 
 #move-buttons {
   --size: 5rem;
-	--color1: #777a;
-	--color2: #a5dd;
+  --color1: #777a;
+  --color2: #a5dd;
+  --border-color: #fff;
+  --shadow-color: #000;
+  --active-color: #ffcc00;
 
   position: absolute;
   bottom: 15px;
@@ -27,7 +35,7 @@
   gap: 1.2rem;
 }
 
-#move-buttons>div {
+#move-buttons > div {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,12 +47,76 @@
   width: var(--size);
   cursor: pointer;
   -webkit-user-drag: none;
+  background-color: var(--color1);
+  color: var(--border-color);
+  font-family: "SilkScreen", monospace;
+  font-size: 1.5rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 4px solid var(--border-color);
+  box-shadow: 4px 4px 0 var(--shadow-color);
+  image-rendering: pixelated;
+  transition: transform 0.1s, box-shadow 0.1s, background-color 0.1s;
+  text-shadow: 2px 2px 0 var(--shadow-color);
+  position: relative;
+  overflow: hidden;
+  outline: none;
 }
 
-#move-buttons .button {
-	background-color: var(--color1);
+#move-buttons .button:hover {
+  background-color: var(--color2);
+  transform: translateY(-2px);
+  box-shadow: 6px 6px 0 var(--shadow-color);
+  border-style: solid;
+  border-width: 4px;
+  border-color: var(--border-color);
+  border-image-slice: 2;
+  border-image-width: 2;
+  border-image-outset: 0;
+  border-image-repeat: stretch;
+}
+
+#move-buttons .button:active {
+  transform: translateY(2px);
+  box-shadow: 2px 2px 0 var(--shadow-color);
+  background-color: var(--active-color);
+  border-color: var(--active-color);
+  transition: transform 0.05s, box-shadow 0.05s;
+}
+
+#move-buttons .button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(255, 255, 255, 0.1), transparent);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+#move-buttons .button:hover::after {
+  opacity: 1;
 }
 
 #move-buttons #run {
+  font-weight: bold;
+  background-color: var(--color2);
+  letter-spacing: 2px;
+  border-width: 4px;
+  position: relative;
+}
 
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+#move-buttons #run:hover {
+  animation: pulse 1s infinite;
 }

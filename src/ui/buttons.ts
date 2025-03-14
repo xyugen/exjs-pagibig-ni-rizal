@@ -97,8 +97,6 @@ export class Buttons {
 
   private handleButtonUp(action: string) {
     if (!this.scene) return;
-
-    console.log(`Button ${action} released!`);
     
     switch (action) {
       case "left":
