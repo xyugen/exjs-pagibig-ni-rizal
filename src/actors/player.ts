@@ -142,7 +142,7 @@ export default class Player extends PhysicsActor {
   onPreUpdate(engine: ex.Engine, delta: number): void {
     // reset some flags when we're on the ground
 
-    this.handleInput(engine, delta);
+    this.handleInput();
   }
 
   // @ts-ignore
@@ -195,9 +195,9 @@ export default class Player extends PhysicsActor {
   /**
    * Process user input to control the character
    */
-  handleInput(engine: ex.Engine, delta: number) {
+  handleInput() {
     const heldXDirection = this.controls.getHeldXDirection();
-
+    console.log("HELD DIRECTION", heldXDirection);
     // move left or right
     if (heldXDirection && this.isXMovementAllowed) {
       const direction = heldXDirection === "Left" ? -1 : 1;

@@ -1,5 +1,50 @@
+/* @import url("../public/fonts/silkscreen-regular.woff2"); */
+
 @media (prefers-color-scheme: dark) {
   body {
+    font-family: 'SilkScreen';
     background-color: black;
   }
+}
+
+#move-buttons {
+  --size: 5rem;
+	--color1: #777a;
+	--color2: #a5dd;
+
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  display: none;
+  flex-direction: row;
+  justify-content: space-between;
+  /* min-width: calc(var(--size) * 2 + 2rem); */
+  width: calc(100% - 30px);
+  height: var(--size);
+  /* flex-wrap: wrap; */
+  vertical-align: top;
+  /* overflow: hidden; */
+  gap: 1.2rem;
+}
+
+#move-buttons>div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+#move-buttons .button {
+  height: 100%;
+  width: var(--size);
+  cursor: pointer;
+  -webkit-user-drag: none;
+}
+
+#move-buttons .button {
+	background-color: var(--color1);
+}
+
+#move-buttons #run {
+
 }

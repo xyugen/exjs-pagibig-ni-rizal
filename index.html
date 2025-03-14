@@ -4,10 +4,21 @@
     <meta charset="UTF-8" />
     <link rel="icon" href="favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./src/style.css">
+    <link rel="stylesheet" href="./src/style.css" />
     <title>Pag-ibig ni Rizal</title>
   </head>
   <body>
+    <main>
+      <canvas id="game"></canvas>
+      <div id="move-buttons">
+        <div>
+          <section class="button" id="left">←</section>
+          <section class="button" id="right">→</section>
+        </div>
+        <section class="button" id="run">RUN</section>
+      </div>
+    </main>
+
     <script type="module" src="./src/main.ts"></script>
   </body>
 </html>

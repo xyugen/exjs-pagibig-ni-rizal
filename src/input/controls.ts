@@ -15,7 +15,7 @@ export default class ControlsComponent extends Component {
     const engine = this.owner.scene!.engine;
     const [key, button] = this.controls[control];
 
-    return Boolean(engine.input.keyboard.isHeld(key));
+    return Boolean(engine.input.keyboard.isHeld(key || button));
   }
 
   wasPressed(control: keyof typeof this.controls) {

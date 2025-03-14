@@ -25,12 +25,13 @@ import { Woman } from "../actors/woman";
 import { timelineEvents } from "../data/timeline-data";
 import { CollisionGroup } from "../physics/collision";
 import { Resources } from "../resources";
-// import { LevelOverlay } from "../ui/level-overlay";
+import { Buttons } from "../ui/buttons";
 
 export default class LevelScene extends Scene {
   song?: ex.Sound;
   tilemap: TiledResource;
   background: ex.ImageSource;
+  private buttons: Buttons;
 
   entityFactory: Record<
     string,
@@ -116,6 +117,7 @@ export default class LevelScene extends Scene {
     this.tilemap = args.tilemap;
     this.background = args.background;
     this.song = args.song;
+    this.buttons = new Buttons();
 
     for (const [className, factory] of Object.entries(this.entityFactory)) {
       this.tilemap.registerEntityFactory(className, factory);
@@ -126,6 +128,9 @@ export default class LevelScene extends Scene {
     this.tilemap.addToScene(this);
 
     // this.add(new LevelOverlay());
+
+    // Initialize the buttons with this scene
+    this.buttons.initialize(this);
 
     this.setupCollisionGroups();
     this.setupCamera();
@@ -202,7 +207,7 @@ export default class LevelScene extends Scene {
           },
           {
             graphic: titleText,
-            offset: vec(textOffsetX, 32  + padding),
+            offset: vec(textOffsetX, 32 + padding),
           },
           {
             graphic: talambuhayText,
