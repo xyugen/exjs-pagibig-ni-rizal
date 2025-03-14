@@ -7,7 +7,7 @@ export class Woman extends Actor {
       x,
       y,
       z,
-      anchor: new Vector(0.5, 0.78),
+      anchor: new Vector(0, 0.78),
     });
   }
 }

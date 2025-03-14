@@ -20,9 +20,9 @@ export const timelineEvents: TimelineEvent[] = [
     name: "Julia Celeste Smith",
     title: "Ang Dalaga sa Ilog Dampalit",
     talambuhay:
-      "Isang dalaga na nakilala ni Rizal habang naglalakad sa tabi ng Ilog Dampalit sa Los Baños, Laguna.",
+      "Isang dalaga na nakilala ni Rizal\nhabang naglalakad sa tabi ng\nIlog Dampalit sa Los Baños, Laguna.",
     buodNgPagibig:
-      "Noong 15 taong gulang pa lamang si Rizal, nakita niya si Julia habang pinapatuyo ang kanyang mga paa sa ilog. Naakit siya ngunit hindi ito hinabol. Isang panandaliang sulyap na nag-iwan ng matamis na alaala.",
+      "Noong 15 taong gulang pa lamang si\nRizal, nakita niya si Julia habang pinapatuyo\nang kanyang mga paa sa ilog. Naakit siya ngunit\nhindi ito hinabol. Isang panandaliang sulyap na\nnag-iwan ng matamis na alaala.",
     mgaSinulatNiRizal:
       "Walang direktang pagbanggit sa kanyang mga akda, ngunit binanggit ng mga historyador ang sandaling ito bilang simula ng kanyang pagkahumaling sa kagandahan ng mga dalaga.",
     epektoKayRizal:
@@ -38,9 +38,9 @@ export const timelineEvents: TimelineEvent[] = [
     name: "Segunda Katigbak",
     title: "Unang Pag-ibig",
     talambuhay:
-      "Isang dalaga mula sa Lipa, Batangas, na kinikilala bilang unang pag-ibig ni Rizal.",
+      "Isang dalaga mula sa Lipa, Batangas,\nna kinikilala bilang unang pag-ibig\nni Rizal.",
     buodNgPagibig:
-      "Nagkakilala sila noong 16 taong gulang si Rizal, ngunit nakatakda nang ikasal si Segunda. Isang pag-ibig na hindi natuloy.",
+      "Nagkakilala sila noong 16 taong gulang\nsi Rizal, ngunit nakatakda nang ikasal\nsi Segunda. Isang pag-ibig na\nhindi natuloy.",
     mgaSinulatNiRizal:
       "Isinulat niya ang tungkol sa kanya sa kanyang mga alaala, inilarawan bilang isang 'maliit na babae na may makahulugang mga mata.'",
     epektoKayRizal:
@@ -56,9 +56,9 @@ export const timelineEvents: TimelineEvent[] = [
     name: "Leonor Valenzuela",
     title: "Orang",
     talambuhay:
-      "Kapitbahay ni Rizal sa Intramuros (Orang) na nakilala sa kanilang palitan ng mga liham ng pag-ibig.",
+      "Kapitbahay ni Rizal sa Intramuros\n(Orang) na nakilala sa kanilang\npalitan ng mga liham ng pag-ibig.",
     buodNgPagibig:
-      "Gumamit si Rizal ng hindi nakikitang tinta na gawa sa tubig-alat upang sumulat ng mga liham, na kailangang painitan upang mabasa. Ang paggamit ng invisible ink ay nagpapakita ng pagiging malikhain ni Rizal.",
+      "Gumamit si Rizal ng hindi nakikitang tinta\nna gawa sa tubig-alat upang sumulat\nng mga liham, na kailangang painitan upang\nmabasa. Ang paggamit ng invisible ink ay\nnagpapakita ng pagiging malikhain ni Rizal.",
     mgaSinulatNiRizal: "Mga liham ng pag-ibig.",
     epektoKayRizal:
       "Natuto siyang maging malikhain sa pagpapahayag ng pag-ibig, ngunit kalaunan ay nawala ang kanilang relasyon.",
@@ -73,9 +73,9 @@ export const timelineEvents: TimelineEvent[] = [
     name: "Leonor Rivera",
     title: "Ang Hindi Niya Nakamit",
     talambuhay:
-      'Pinsan ni Rizal at itinuturing niyang "pinakamahal," ang naging inspirasyon ni María Clara.',
+      'Pinsan ni Rizal at itinuturing\nniyang "pinakamahal," ang naging\ninspirasyon ni María Clara.',
     buodNgPagibig:
-      "Nagtagal ang kanilang relasyon ng 11 taon ngunit natapos nang pilitin siyang ipakasal sa isang Ingles. Isang malalim na pag-ibig na nasira ng mga pangyayari.",
+      "Nagtagal ang kanilang relasyon ng\n11 taon ngunit natapos nang pilitin siyang\nipakasal sa isang Ingles. Isang malalim na\npag-ibig na nasira ng mga pangyayari.",
     mgaSinulatNiRizal:
       'Mga liham ng pag-ibig at inspirasyon sa "Noli Me Tangere."',
     epektoKayRizal:
@@ -90,9 +90,9 @@ export const timelineEvents: TimelineEvent[] = [
     year: "1882-1883",
     name: "Consuelo Ortiga y Rey",
     title: "Panandaliang Pag-ibig sa Madrid",
-    talambuhay: "Anak ng isang opisyal na Kastila sa Madrid.",
+    talambuhay: "Anak ng isang opisyal na Kastila\nsa Madrid.",
     buodNgPagibig:
-      "Humanga si Rizal sa kanyang kagandahan at talino ngunit hindi itinuloy ang relasyon bilang respeto sa kaibigang si Eduardo de Lete. Ang pagpapakita ng pagiging marangal at tapat sa pagkakaibigan.",
+      "Humanga si Rizal sa kanyang kagandahan\nat talino ngunit hindi itinuloy ang relasyon\nbilang respeto sa kaibigang si Eduardo\nde Lete. Ang pagpapakita ng pagiging marangal\nat tapat sa pagkakaibigan.",
     mgaSinulatNiRizal: 'Tula na "A La Señorita C.O. y R."',
     epektoKayRizal: "Natuto siya ng pagpipigil at katapatan sa pagkakaibigan.",
     kontekstongPagkasaysayan: "Aktibo si Rizal sa Kilusang Propaganda.",
@@ -105,9 +105,9 @@ export const timelineEvents: TimelineEvent[] = [
     name: "O-Sei-San",
     title: "Ang Haponang Pag-ibig",
     talambuhay:
-      "Anak ng isang samurai sa Japan, tunay na pangalan ay Seiko Usui.",
+      "Anak ng isang samurai sa Japan,\ntunay na pangalan ay Seiko Usui.",
     buodNgPagibig:
-      "Napamahal si Rizal sa kanyang kabaitan at talino habang nasa Japan ngunit iniwan ito upang bumalik sa Pilipinas. Ang paghanga sa kulturang Hapones.",
+      "Napamahal si Rizal sa kanyang kabaitan\nat talino habang nasa Japan ngunit iniwan\nito upang bumalik sa Pilipinas.\nAng paghanga sa kulturang Hapones.",
     mgaSinulatNiRizal: "Inilarawan siya sa kanyang talaarawan.",
     epektoKayRizal: "Natutunan niyang pahalagahan ang kulturang Hapones.",
     kontekstongPagkasaysayan: "Nasa Japan si Rizal papuntang U.S.",
@@ -121,7 +121,7 @@ export const timelineEvents: TimelineEvent[] = [
     title: "Panandaliang Pag-iibigan sa London",
     talambuhay: "Anak ng landlord ni Rizal sa London.",
     buodNgPagibig:
-      "Inibig siya ni Gertrude, ngunit pinili ni Rizal na pagtuunan ng pansin ang kanyang gawain kaysa sa pag-ibig. Ang dedikasyon sa misyon kaysa sa personal na pag-ibig.",
+      "Inibig siya ni Gertrude, ngunit pinili ni Rizal\nna pagtuunan ng pansin ang kanyang\ngawain kaysa sa pag-ibig.\nAng dedikasyon sa misyon kaysa sa personal na\npag-ibig.",
     mgaSinulatNiRizal: "Gumawa siya ng iskultura para sa kanya.",
     epektoKayRizal:
       "Pinakita ang kanyang dedikasyon sa misyon kaysa sa personal na pag-ibig.",
@@ -135,9 +135,9 @@ export const timelineEvents: TimelineEvent[] = [
     year: "1890-1891",
     name: "Nelly Boustead",
     title: "Mataas na Lipunan sa Paris",
-    talambuhay: "Isang Filipina mestiza na naninirahan sa Europa.",
+    talambuhay: "Isang Filipina mestiza na naninirahan\nsa Europa.",
     buodNgPagibig:
-      "May pagtingin sila sa isa't isa, ngunit tumutol ang ina ni Nelly at nais nitong magpalit si Rizal ng relihiyon sa Protestantismo. Ang pag-ibig na hindi lumampas sa pagkakaiba ng paniniwala.",
+      "May pagtingin sila sa isa't isa, ngunit tumutol\nang ina ni Nelly at nais nitong magpalit si Rizal\nng relihiyon sa Protestantismo.\nAng pag-ibig na hindi lumampas sa pagkakaiba\nng paniniwala.",
     mgaSinulatNiRizal: "Mga banggit sa kanyang mga liham.",
     epektoKayRizal:
       "Napagtanto niyang hindi palaging kaya ng pag-ibig lampasan ang pagkakaiba ng paniniwala.",
@@ -151,9 +151,9 @@ export const timelineEvents: TimelineEvent[] = [
     name: "Suzanne Jacoby",
     title: "Pag-ibig sa Belgium",
     talambuhay:
-      "Si Suzanne Jacoby ay pamangkin ng may-ari ng paupahang tinutuluyan ni Rizal noong siya ay nasa Brussels, Belgium.",
+      "Si Suzanne Jacoby ay pamangkin ng may-ari\nng paupahang tinutuluyan ni Rizal noong\nsiya ay nasa Brussels, Belgium.",
     buodNgPagibig:
-      "Noong si Rizal ay labis na nakakaramdam ng kalungkutan at pag-aalala sa kanyang pamilya sa Pilipinas, si Suzanne ang kanyang naging sandalan upang kahit papaano ay mapawi ang pag-aalala na nararamdaman nito. Nagkaroon sila ng maikling romansa, ngunit iniwan siya ni Rizal upang lumipat sa Madrid. Ang kanilang relasyon ay nagpakita ng suporta at aliw sa panahon ng pagdadalamhati ni Rizal. Ang pag-ibig na isinakripisyo para sa misyon.",
+      "Noong si Rizal ay labis na nakakaramdam\nng kalungkutan at pag-aalala\nsa kanyang pamilya sa Pilipinas,\nsi Suzanne ang kanyang naging sandalan upang kahit papaano ay mapawi ang pag-aalala na nararamdaman\nnito. Nagkaroon sila ng maikling romansa, ngunit iniwan\nsiya ni Rizal upang lumipat sa Madrid.\nAng kanilang relasyon ay nagpakita ng suporta at aliw sa\npanahon ng pagdadalamhati ni Rizal.\nAng pag-ibig na isinakripisyo para sa misyon.",
     mgaSinulatNiRizal:
       'Sinasabing inialay ni Rizal kay Suzanne ang dalawang sanaysay na pinamagatang "Filipinas Dentro de Cien Anos" at ang "Sobre de la Indolencia de los Filipinos"',
     epektoKayRizal:
@@ -169,9 +169,9 @@ export const timelineEvents: TimelineEvent[] = [
     name: "Pastora Necesario",
     title: "Usap-usapang Pag-ibig sa Dapitan",
     talambuhay:
-      "Isang dalaga mula sa Dapitan, na sinasabing isa sa mga hinangaan ni Rizal habang siya'y nakadestiyero.",
+      "Isang dalaga mula sa Dapitan, na sinasabing isa\nsa mga hinangaan ni Rizal\nhabang siya'y nakadestiyero.",
     buodNgPagibig:
-      "Wala pang matibay na ebidensya ng malalim nilang relasyon, ngunit sinasabing isa siya sa mga nagkagusto kay Rizal.",
+      "Wala pang matibay na ebidensya ng\nmalalim nilang relasyon, ngunit\nsinasabing isa siya sa mga nagkagusto\nkay Rizal.",
     mgaSinulatNiRizal: "Walang matibay na dokumentasyon.",
     epektoKayRizal:
       "Kung totoo, pinapatunayang patuloy siyang hinangaan ng mga babae kahit nasa Dapitan.",
@@ -185,9 +185,9 @@ export const timelineEvents: TimelineEvent[] = [
     year: "1895-1896",
     name: "Josephine Bracken",
     title: "Ang Kanyang Huling Kasama",
-    talambuhay: "Isang Irish na dumalaw kay Rizal sa Dapitan.",
+    talambuhay: "Isang Irish na dumalaw kay\nRizal sa Dapitan.",
     buodNgPagibig:
-      "Inalagaan niya si Rizal habang ito'y nasa destiyero, at itinuring nilang mag-asawa ang isa't isa kahit walang basbas ng simbahan. Ang kanyang huling pag-ibig.",
+      "Inalagaan niya si Rizal habang ito'y nasa\ndestiyero, at itinuring nilang mag-asawa\nang isa't isa kahit\nwalang basbas ng simbahan.\nAng kanyang huling pag-ibig.",
     mgaSinulatNiRizal:
       'Ang tula niyang "Mi Último Adiós" ay sinasabing para sa kanya.',
     epektoKayRizal: "Siya ang naging huling kasama ni Rizal bago ito barilin.",

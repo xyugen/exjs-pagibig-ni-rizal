@@ -11,14 +11,20 @@ import {
   Color,
   CompositeCollider,
   EdgeCollider,
+  Font,
+  FontUnit,
+  GraphicsGroup,
   Label,
+  Rectangle,
   Scene,
   TextAlign,
+  Text as TextEntity,
   vec,
 } from "excalibur";
+import { Woman } from "../actors/woman";
+import { timelineEvents } from "../data/timeline-data";
 import { CollisionGroup } from "../physics/collision";
 import { Resources } from "../resources";
-import { Woman } from "../actors/woman";
 // import { LevelOverlay } from "../ui/level-overlay";
 
 export default class LevelScene extends Scene {
@@ -130,7 +136,6 @@ export default class LevelScene extends Scene {
 
   setupWomen() {
     // find all women instances
-    // const women = this.entities.filter((e) => e instanceof Woman);
     const womanEntity = this.entities.find((e) => e instanceof Woman) as Woman;
 
     if (!womanEntity) {
@@ -138,38 +143,109 @@ export default class LevelScene extends Scene {
       return;
     }
 
-    // if (women.length == 0) {
-    //   console.warn("Women not found in scene entities.");
-    //   return;
-    // }
-
-    // women.forEach((woman) => {
-    //   console.log(woman.globalPos.x);
-    // });
-
-    console.log(womanEntity);
-
     const womenImages = Resources.womenSprites;
-    Object.values(womenImages).forEach((womanImage, index) => {
+    timelineEvents.forEach((event, index) => {
+      const womanImage = Object.values(womenImages)[index];
       const womanSprite = womanImage.toSprite();
       const woman = new Woman({
-        x: womanEntity.globalPos.x + (500 * index),
+        x: womanEntity.globalPos.x + 500 * index,
         y: womanEntity.globalPos.y,
       });
+
+      const MAIN_COLOR = Color.White;
+      const yearText = new TextEntity({
+        text: event.year,
+        color: MAIN_COLOR,
+        font: new Font({ family: "Round9x13", size: 14, unit: FontUnit.Px }),
+      });
+      const nameText = new TextEntity({
+        text: event.name,
+        color: MAIN_COLOR,
+        font: new Font({ family: "SilkScreen", size: 14, unit: FontUnit.Px }),
+      });
+      const titleText = new TextEntity({
+        text: `(${event.title})`,
+        color: MAIN_COLOR,
+        font: new Font({ family: "SilkScreen", size: 12, unit: FontUnit.Px }),
+      });
+      const talambuhayText = new TextEntity({
+        text: event.talambuhay,
+        color: MAIN_COLOR,
+        font: new Font({ family: "SilkScreen", size: 10, unit: FontUnit.Px }),
+      });
+      const buodNgPagibigText = new TextEntity({
+        text: event.buodNgPagibig,
+        color: MAIN_COLOR,
+        font: new Font({ family: "SilkScreen", size: 10, unit: FontUnit.Px }),
+      });
       womanSprite.scale = vec(0.1, 0.1);
-      woman.graphics.use(womanSprite);
+
+      // Create background rectangle with padding
+      const padding = 5;
+
+      // Create the graphics group without background first
+      const textOffsetX = 120 + padding;
+      const contentGroup = new GraphicsGroup({
+        useAnchor: true,
+        members: [
+          {
+            graphic: womanSprite,
+            offset: vec(padding, padding),
+          },
+          {
+            graphic: yearText,
+            offset: vec(textOffsetX, 0),
+          },
+          {
+            graphic: nameText,
+            offset: vec(textOffsetX, 15 + padding),
+          },
+          {
+            graphic: titleText,
+            offset: vec(textOffsetX, 32  + padding),
+          },
+          {
+            graphic: talambuhayText,
+            offset: vec(textOffsetX, 49 + padding),
+          },
+          {
+            graphic: buodNgPagibigText,
+            offset: vec(textOffsetX, 95 + padding),
+          },
+        ],
+      });
+
+      // Get the dimensions of the content group
+      const groupWidth = contentGroup.width;
+      const groupHeight = contentGroup.height;
+
+      // Create background rectangle based on content dimensions
+      const background = new Rectangle({
+        width: groupWidth + padding * 2,
+        height: groupHeight + padding * 2,
+        color: Color.fromHex("#221F19"),
+        strokeColor: Color.fromHex("#552413"),
+        lineWidth: 6,
+      });
+
+      // Create the final group with background as first element
+      const finalGroup = new GraphicsGroup({
+        useAnchor: true,
+        members: [
+          {
+            graphic: background,
+            offset: vec(15 + padding * 2, 0),
+          },
+          {
+            graphic: contentGroup,
+            offset: vec(padding, padding),
+          },
+        ],
+      });
+
+      woman.graphics.use(finalGroup);
       this.add(woman);
     });
-    // const womenImages = Resources.womenSprites;
-    // Object.values(women).forEach((woman, index) => {
-    //   const womanSprite = Object.values(womenImages)[index].toSprite();
-    //   womanSprite.scale = vec(0.1, 0.1);
-    //   woman.graphics.use(womanSprite);
-    // });
-    // Object.values(womenImages).forEach((sprite, index) => {
-    //   const womanSprite = sprite.toSprite();
-    //   women[index].graphics.use(womanSprite);
-    // });
   }
 
   setupCollisionGroups() {
