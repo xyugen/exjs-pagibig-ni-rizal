@@ -1,4 +1,4 @@
-import { Engine, Keys, Scene, vec, Vector } from "excalibur";
+import { Keys, Scene, vec, Vector } from "excalibur";
 import Player from "../actors/player";
 
 export class Buttons {
@@ -9,9 +9,6 @@ export class Buttons {
   private leftButton: HTMLElement | null = null;
   private rightButton: HTMLElement | null = null;
   private runButton: HTMLElement | null = null;
-  private isLeftPressed: boolean = false;
-  private isRightPressed: boolean = false;
-  private isRunPressed: boolean = false;
 
   constructor() {
     // has child section id left and id right
@@ -87,15 +84,12 @@ export class Buttons {
 
     switch (action) {
       case "left":
-        this.isLeftPressed = true;
         this.scene.engine.input.keyboard.triggerEvent("down", Keys.Left);
         break;
       case "right":
-        this.isRightPressed = true;
         this.scene.engine.input.keyboard.triggerEvent("down", Keys.Right);
         break;
       case "run":
-        this.isRunPressed = true;
         this.scene.engine.input.keyboard.triggerEvent("down", Keys.ShiftLeft);
         break;
     }
@@ -108,15 +102,12 @@ export class Buttons {
     
     switch (action) {
       case "left":
-        this.isLeftPressed = false;
         this.scene.engine.input.keyboard.triggerEvent("up", Keys.Left);
         break;
       case "right":
-        this.isRightPressed = false;
         this.scene.engine.input.keyboard.triggerEvent("up", Keys.Right);
         break;
       case "run":
-        this.isRunPressed = false;
         this.scene.engine.input.keyboard.triggerEvent("up", Keys.ShiftLeft);
         break;
     }

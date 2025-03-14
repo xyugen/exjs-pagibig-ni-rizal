@@ -14,7 +14,7 @@ export class LevelOverlay extends ex.ScreenElement {
       z: 1000,
       anchor: ex.vec(0, 0),
       color: ex.Color.Transparent,
-      coordPlane: ex.CoordPlane.Screen
+      coordPlane: ex.CoordPlane.Screen,
     });
   }
 
@@ -23,9 +23,9 @@ export class LevelOverlay extends ex.ScreenElement {
   }
 
   onInitialize(engine: ex.Engine<any>): void {
-    this.controlsPanel = new ControlsPanel({ 
+    this.controlsPanel = new ControlsPanel({
       z: this.z,
-      coordPlane: ex.CoordPlane.Screen 
+      coordPlane: ex.CoordPlane.Screen,
     });
     this.playerQuery = engine.currentScene.world.queryTags(["player"]);
 
@@ -125,7 +125,6 @@ class ControlButton extends ex.ScreenElement {
     const { text, action, ...rest } = args;
     super({
       ...rest,
-      
     });
     this.action = action;
   }
@@ -146,7 +145,7 @@ class ControlButton extends ex.ScreenElement {
         color: ex.Color.White,
       }),
       z: this.z + 1,
-      coordPlane: ex.CoordPlane.Screen
+      coordPlane: ex.CoordPlane.Screen,
     });
 
     this.graphics.use(this.background);
@@ -154,15 +153,15 @@ class ControlButton extends ex.ScreenElement {
 
     // Make sure pointer detection works with screen coordinates
     this.pointer.useGraphicsBounds = true;
-    
+
     // Force update the bounds to match the graphics
-    const bounds = this.graphics.localBounds;
+    // const bounds = this.graphics.localBounds;
     // this.collider.set(new ex.Collider({ bounds }));
-    
+
     // Add pointer event listeners
-    this.on('pointerdown', this.handlePointerDown.bind(this));
-    this.on('pointerup', this.handlePointerUp.bind(this));
-    this.on('pointerleave', this.handlePointerUp.bind(this));
+    this.on("pointerdown", this.handlePointerDown.bind(this));
+    this.on("pointerup", this.handlePointerUp.bind(this));
+    this.on("pointerleave", this.handlePointerUp.bind(this));
   }
 
   handlePointerDown(evt: ex.PointerEvent) {

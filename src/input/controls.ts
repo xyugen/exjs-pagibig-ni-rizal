@@ -22,14 +22,14 @@ export default class ControlsComponent extends Component {
     const engine = this.owner.scene!.engine;
     const [key, button] = this.controls[control];
 
-    return Boolean(engine.input.keyboard.wasPressed(key));
+    return Boolean(engine.input.keyboard.wasPressed(key || button));
   }
 
   wasReleased(control: keyof typeof this.controls) {
     const engine = this.owner.scene!.engine;
     const [key, button] = this.controls[control];
 
-    return Boolean(engine.input.keyboard.wasReleased(key));
+    return Boolean(engine.input.keyboard.wasReleased(key || button));
   }
 
   /**
@@ -44,5 +44,7 @@ export default class ControlsComponent extends Component {
       if (this.controls.Left.includes(key as any)) return "Left";
       if (this.controls.Right.includes(key as any)) return "Right";
     }
+
+    return undefined;
   }
 }
