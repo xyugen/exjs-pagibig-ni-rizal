@@ -1,11 +1,19 @@
 import { TiledResource } from "@excaliburjs/plugin-tiled";
-import { FontSource, ImageFiltering, ImageSource, Loader } from "excalibur";
+import {
+  Color,
+  FontSource,
+  ImageFiltering,
+  ImageSource,
+  Loader,
+} from "excalibur";
+import { LogoManager } from "./util/logo-manager";
 
 // It is convenient to put your resources in one place
 export const Resources = {
   sprites: {
     player: new ImageSource("./sprites/rizal-spritesheet.png"),
     background: new ImageSource("./sprites/backgrounds/main-bg.png"),
+    rizalIcon: new ImageSource("./sprites/rizal-icon.webp"),
     // tilemap: new ImageSource("./sprites/tileset-1.png"),
   },
   womenSprites: {
@@ -57,7 +65,16 @@ class DevLoader extends Loader {
   dispose() {}
 }
 
-export const loader = new DevLoader();
+const getLoader = () => {
+  const loader = new DevLoader();
+  loader.logo = LogoManager.base64Image;
+  loader.logoHeight = 250;
+  loader.logoWidth = 250;
+  loader.loadingBarColor = Color.fromHex("#221F19");
+  loader.suppressPlayButton = true;
+  return loader;
+};
+export const loader = getLoader();
 process.env.NODE_ENV === "development" ? new DevLoader() : new Loader();
 
 for (const group of Object.values(Resources)) {
